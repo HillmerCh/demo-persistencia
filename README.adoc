@@ -1,0 +1,20 @@
+= JPA + JUNIT.Jupiter
+
+Este repositorio contiene una seria casos de pruebas unitarias para la persistencia de un objeto mediente JPA. Para las pruebas se utiliza JUnit.Jupiter
+
+
+== Crear la base de datos
+
+Para crear un contenedor con la base de datos ejecute el siguiente comando
+
+ $ docker run -it --rm --name demo-pg-db -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
+
+
+Para conectarse por consola a la base de datos utilice el siguiente comando
+
+ $ docker exec -it demo-pg-db -- psql -U postgres
+
+
+== Ejecutar las pruebas unitarias
+
+La clase `JPATestCase` contiene las pruebas unitarias para crear, consultar, modificar y eliminar la entity `demo.entity.Todo`

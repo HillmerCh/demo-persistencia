@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>demo-persistencia</groupId>
+    <artifactId>demo-persistencia</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <version.postgresql>42.2.8</version.postgresql>
+        <!--<version.junit>4.12</version.junit>-->
+        <junit.jupiter.version>5.5.1</junit.jupiter.version>
+        <version.org.hibernate>5.4.5.Final</version.org.hibernate>
+        <version.org.slf4j>1.7.25</version.org.slf4j>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.12</maven.compiler.source>
+        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+
+    </properties>
+
+
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${version.org.hibernate}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${version.postgresql}</version>
+        </dependency>
+
+
+<!--        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${version.junit}</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
+    </dependencies>
+
+
+</project>

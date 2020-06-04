@@ -18,3 +18,26 @@ Para conectarse por consola a la base de datos utilice el siguiente comando
 == Ejecutar las pruebas unitarias
 
 La clase `JPATestCase` contiene las pruebas unitarias para crear, consultar, modificar y eliminar la entity `demo.entity.Todo`
+
+docker run -it --rm --name demo-mysql-db -e MYSQL_ROOT_PASSWORD=123 -e MYSQL_DATABASE=demo-mysql-db -d -p 3306:3306 mysql
+docker exec -it demo-mysql-db mysql -u root -p
+
+
+docker run --name demo-mysql-db -e MYSQL_ROOT_PASSWORD=123 MYSQL_DATABASE=demo-mysql-db -d mysql
+docker run -it --rm mysql mysql -hdemo-mysql-db -uexample-user -p
+
+docker run -it --network some-network --rm mysql mysql -hsome-mysql -uexample-user -p
+
+
+docker run -it --rm mysql mysql -hlocalhost:3306/demo-mysql-db -uroot -p
+
+docker exec -it demo-mysql-db mysql -h127.0.0.1 -P3306 -uusername -ppassword -Ddatabasename
+docker exec -it demo-mysql-db mysql -h127.0.0.1 -P3306 -uroot -p123 -Ddatabasename
+
+docker exec -it veto_db mysql -h127.0.0.1 -P3306 -uusername -ppassword -Ddatabasename
+
+docker exec -it demo-mysql-db -- mysql -U root
+docker exec -it demo-mysql-db mysql -u root -p
+
+docker run -it --network some-network --rm mysql mysql -hdemo-mysql-db -uexample-user -p
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag

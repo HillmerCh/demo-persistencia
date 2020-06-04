@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Todo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private Boolean completed;
     private Long ordering;

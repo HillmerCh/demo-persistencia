@@ -31,20 +31,6 @@
             <version>${version.org.hibernate}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${version.postgresql}</version>
-        </dependency>
-
-
-<!--        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${version.junit}</version>
-        </dependency>-->
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -55,6 +41,106 @@
 
 
     </dependencies>
+
+    <build>
+        <plugins>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-java-files</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/java</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+
+    <profiles>
+    <profile>
+        <id>my-sql</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+       <!-- <properties>
+            <database.url>jdbc:mysql://localhost:3306/demo-mysql-db</database.url>
+        </properties>-->
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.20</version>
+            </dependency>
+        </dependencies>
+        <build>
+            <!--<resources>
+                <resource>
+                    <directory>src/main/resources/DB</directory>
+                    <filtering>true</filtering>
+                </resource>
+            </resources>-->
+
+            <filters>
+                <filter>${basedir}/src/main/resources/DB/mysql.properties</filter>
+            </filters>
+
+        </build>
+        <!--<build>
+            <filters>
+                <filter>${basedir}/src/main/resources/filters/my-sql.properties</filter>
+            </filters>
+        </build>-->
+    </profile>
+        <profile>
+            <id>postgres</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <dependencies>
+
+                <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+                <dependency>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                    <version>${version.postgresql}</version>
+                </dependency>
+
+            </dependencies>
+
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/PATH/postgres</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+                <filters>
+                    <filter>${basedir}/src/main/resources/filters/mojarra.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
 
 
 </project>

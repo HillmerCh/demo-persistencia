@@ -44,17 +44,27 @@
                         <property name="hibernate.service.allow_crawling" value="false"/>
                         <property name="hibernate.session.events.log" value="true"/>-->
 
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/postgres"/>
+            <!--<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/postgres"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
             <property name="hibernate.connection.username" value="postgres"/>
             <property name="hibernate.connection.password" value=""/>
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <!--<property
-                    name="javax.persistence.schema-generation.database.action"
-                    value="create"/>-->
+            &lt;!&ndash;<property name="javax.persistence.schema-generation.database.action" value="create"/>&ndash;&gt;
+            <property name="hibernate.show_sql" value="true"/>-->
+
+
+            <property name="hibernate.connection.url" value="${database.url}"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="123"/>
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!--<property name="javax.persistence.schema-generation.database.action" value="create"/>-->
             <property name="hibernate.show_sql" value="true"/>
+
 
 
         </properties>

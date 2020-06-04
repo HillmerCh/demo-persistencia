@@ -59,7 +59,7 @@
 
     <profiles>
         <profile>
-            <id>my-sql</id>
+            <id>mysql</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>

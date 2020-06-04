@@ -16,11 +16,10 @@
         <version.org.slf4j>1.7.25</version.org.slf4j>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.source>1.13</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
-
+        <java.version>13</java.version>
     </properties>
-
 
     <dependencies>
 
@@ -41,35 +40,20 @@
 
 
     </dependencies>
-
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>copy-java-files</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main/java</directory>
-                                    <filtering>false</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
 
+            </plugin>
         </plugins>
     </build>
 
@@ -81,9 +65,9 @@
         <activation>
             <activeByDefault>true</activeByDefault>
         </activation>
-        <properties>
+        <!--<properties>
             <database.url>jdbc:mysql://localhost:3306/demo-mysql-db</database.url>
-        </properties>
+        </properties>-->
         <dependencies>
             <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
             <dependency>
@@ -93,23 +77,11 @@
             </dependency>
         </dependencies>
         <build>
-           <resources>
-                <resource>
-                    <directory>src/main/resources</directory>
-                    <filtering>true</filtering>
-                </resource>
-            </resources>
-
-<!--             <filters>
-                <filter>${basedir}/src/main/resources/DB/mysql.properties</filter>
-            </filters> -->
-
-        </build>
-        <!--<build>
             <filters>
-                <filter>${basedir}/src/main/resources/filters/my-sql.properties</filter>
+                <filter>${basedir}/src/main/resources/filters/mysql.properties</filter>
             </filters>
-        </build>-->
+        </build>
+
     </profile>
         <profile>
             <id>postgres</id>

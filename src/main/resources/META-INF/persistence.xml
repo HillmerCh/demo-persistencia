@@ -5,60 +5,43 @@
     <persistence-unit name="demoJPA">
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-
         <!--        <jta-data-source>jdbc/DemoDB</jta-data-source>-->
         <properties>
-            <!--            <property
-                                name="javax.persistence.schema-generation.database.action"
-                                value="create" />
-                        <property name="openjpa.jdbc.SynchronizeMappings"
-                                  value="buildSchema" />
-                        <property name="eclipselink.logging.level.sql" value="FINE" />
-                        <property name="eclipselink.logging.parameters" value="true" />
-                        <property name="hibernate.show_sql" value="true" />-->
+            <!--
+            <property name="javax.persistence.schema-generation.database.action" value="create" />
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema" />
+            <property name="eclipselink.logging.level.sql" value="FINE" />
+            <property name="eclipselink.logging.parameters" value="true" />
+            -->
+            <!--
+            <property name="hibernate.archive.autodetection" value="class, hbm"/>
+            <property name="hibernate.connection.pool_size" value="5"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 
+            <property name="hibernate.max_fetch_depth" value="5"/>
 
-            <!--            <property name="hibernate.archive.autodetection" value="class, hbm"/>
+            <property name="hibernate.cache.region_prefix" value="hibernate.test"/>
+            <property name="hibernate.cache.region.factory_class"
+            value="org.hibernate.testing.cache.CachingRegionFactory"/>
 
-                        <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-                        <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
-                        <property name="hibernate.connection.url" value="jdbc:h2:mem:db1;DB_CLOSE_DELAY=-1"/>
-                        <property name="hibernate.connection.username" value="sa"/>
+            &lt;!&ndash;NOTE: hibernate.jdbc.batch_versioned_data should be set to false when testing with Oracle&ndash;&gt;
+            <property name="hibernate.jdbc.batch_versioned_data" value="true"/>
 
-                        <property name="hibernate.connection.pool_size" value="5"/>
+            <property name="javax.persistence.validation.mode" value="NONE"/>
+            <property name="hibernate.service.allow_crawling" value="false"/>
+            <property name="hibernate.session.events.log" value="true"/>
+            -->
 
-                        <property name="hibernate.show_sql" value="true"/>
-                        <property name="hibernate.format_sql" value="true"/>
-                        <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.connection.url" value="${database.url}"/>
+            <property name="hibernate.connection.driver_class" value="${database.driver}"/>
+            <property name="hibernate.connection.username" value="${database.username}"/>
+            <property name="hibernate.connection.password" value="${database.password}"/>
+            <property name="hibernate.dialect" value="${database.dialect}"/>
 
-                        <property name="hibernate.max_fetch_depth" value="5"/>
-
-                        <property name="hibernate.cache.region_prefix" value="hibernate.test"/>
-                        <property name="hibernate.cache.region.factory_class"
-                                  value="org.hibernate.testing.cache.CachingRegionFactory"/>
-
-                        &lt;!&ndash;NOTE: hibernate.jdbc.batch_versioned_data should be set to false when testing with Oracle&ndash;&gt;
-                        <property name="hibernate.jdbc.batch_versioned_data" value="true"/>
-
-                        <property name="javax.persistence.validation.mode" value="NONE"/>
-                        <property name="hibernate.service.allow_crawling" value="false"/>
-                        <property name="hibernate.session.events.log" value="true"/>-->
-
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/postgres"/>
-            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.username" value="postgres"/>
-            <property name="hibernate.connection.password" value=""/>
-
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <!--<property
-                    name="javax.persistence.schema-generation.database.action"
-                    value="create"/>-->
+            <!--<property name="javax.persistence.schema-generation.database.action" value="create"/>-->
             <property name="hibernate.show_sql" value="true"/>
-
-
+            <property name="hibernate.format_sql" value="true"/>
         </properties>
-
-
     </persistence-unit>
 </persistence>

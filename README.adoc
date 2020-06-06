@@ -3,7 +3,7 @@
 Este repositorio contiene una seria casos de pruebas unitarias para la persistencia de un objeto mediente JPA. Para las pruebas se utiliza JUnit.Jupiter
 
 
-== Crear la base de datos
+== Crear la base de datos Posgtres
 
 Para crear un contenedor con la base de datos ejecute el siguiente comando
 
@@ -18,3 +18,27 @@ Para conectarse por consola a la base de datos utilice el siguiente comando
 == Ejecutar las pruebas unitarias
 
 La clase `JPATestCase` contiene las pruebas unitarias para crear, consultar, modificar y eliminar la entity `demo.entity.Todo`
+
+
+
+== Otras base de datos
+
+El proyecto tiene tres perfiles (*_profile_*):  postgres, mysql y h2, uno para ejecutarse con un motor de base de datos especifico.
+
+Para usar una base de datos diferente debe activar el perfil especifico
+
+==== Mysql
+
+Para crear un contenedor con la base de datos ejecute el siguiente comando
+
+ $ docker run -it --rm --name demo-mysql-db -e MYSQL_ROOT_PASSWORD=123 -e MYSQL_DATABASE=demo-mysql-db -p 3306:3306 mysql
+
+
+Para conectarse por consola a la base de datos utilice el siguiente comando
+
+ $ docker exec -it demo-mysql-db mysql -u root -p
+
+
+==== H2
+
+El profile H2 utiliza una base de datos en memoria, no se requiere ejecutar ningún comando para utilizarla
